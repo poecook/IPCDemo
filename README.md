@@ -1,9 +1,6 @@
-# IPCDemo
-Android IPC多进程通信 aidl
-
-
 
 # Android IPC 概述
+本文用到的代码：：https://github.com/poecook/IPCDemo
 ## 开启进程
 Android 开启多进程的方法很简单，四大组件在AndroidMenifest中给android:process属性指定值如下：
 
@@ -365,5 +362,9 @@ mListenerList.finishBroadcast();
 在我们demo中的具体使用可以上上面的代码实例或者github上的代码：https://github.com/poecook/IPCDemo
 
 
-# 问题汇总
+# 问题汇总小结
 - 当aidl下的文件结构跟主文件结构不一致的时候 aidl编译不通过
+- 对象的序列化使用的Parcelable
+- 监听远程使用RemoteCallbackList
+- 死亡监听使用DeathRecipient，当远程binder以外终止的时候会调用。
+- 远程方法的运行在服务端的线程池中，所以有可能会有耗时的可能性，所以客户端如果调用到远程的耗时操作时候会发生NAR。

@@ -11,12 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-
-
 import java.util.List;
-
-
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_show;
     @Override

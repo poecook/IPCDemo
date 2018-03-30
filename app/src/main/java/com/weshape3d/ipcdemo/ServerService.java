@@ -17,23 +17,19 @@ public class ServerService extends Service {
     public IBinder onBind(Intent intent) {
         return binder;
     }
-
     Binder binder = new HeadphonesManager.Stub() {
         @Override
         public void addHeadphones(Headphones hp) throws RemoteException {
            haveNewHeadphones(hp);
         }
-
         @Override
         public List<Headphones> getHeadphoneList() throws RemoteException {
             return headphonesCopyOnWriteArrayList;
         }
-
         @Override
         public void registListener(IArrivedListener listener) throws RemoteException {
                 arrivedListenerRemoteCallbackList.register(listener);
         }
-
         @Override
         public void unRegistListener(IArrivedListener listener) throws RemoteException {
             arrivedListenerRemoteCallbackList.unregister(listener);
